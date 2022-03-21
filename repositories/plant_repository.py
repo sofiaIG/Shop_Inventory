@@ -1,11 +1,6 @@
 from db.run_sql import run_sql
-from models.manufacturer import Manufacturer
 
 from models.plant import Plant
-
-import repositories.plant_repository as plant_repository
-import repositories.manufacturer_repository as manufacturer_repository
-
 
 
 def save(plant):
@@ -17,6 +12,7 @@ def save(plant):
     results = run_sql(sql, values)
     print(results)
     id = results[0]['id']
+    print(f'this is the id {id}')
     plant.id = id
     return id
 
@@ -43,19 +39,20 @@ def select(id):
         result['manufacturer_id'])
     return plant
     
-# def delete(id):
-#     sql = "DELETE FROM plants WHERE id = %s"
-#     values = [id]
-#     run_sql(sql, values)
+def delete(id):
+    sql = "DELETE FROM plants WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
     
-# def delete_all():
-#     sql = "DELETE FROM plants"
-#     run_sql(sql)
+def delete_all():
+    sql = "DELETE FROM plants"
+    run_sql(sql)
 
-# def update(plant):
-#     sql = "UPDATE plants SET (name, description, buying_cost, selling_price, manufacturer)\
-#     = (%s, %s, %s, %s, %s) WHERE id = %s"
-#     values = [plant.name, plant.description, plant.buying_cost, plant.selling_price,\
-#         plant.manufacturer.id]
-#     run_sql(sql, values)
+def update(plant):
+    sql = "UPDATE plants SET (name, description, stock_quantity, \
+        buying_cost, selling_price, manufacturer_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    stock_quantity = plant.stock_quantity_sum()
+    values = [plant.name, plant.description, stock_quantity, plant.buying_cost, plant.selling_price,\
+        plant.manufacturer.id]
+    run_sql(sql, values)
 
