@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+{% for item in inventory %}
+    <p>{{ item.name }}</p>
+    <p>{{ item.description }}</p>
+{% endfor %}
+{% endblock %}

@@ -4,11 +4,10 @@ from models.plant import Plant
 
 
 def save(plant):
-    sql = "INSERT INTO plants (name, description, stock_quantity, buying_cost,\
-    selling_price, manufacturer_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
-    stock_quantity = plant.stock_quantity_sum()
-    values = [plant.name, plant.description, stock_quantity,\
-         plant.buying_cost, plant.selling_price, plant.manufacturer.id]
+    sql = "INSERT INTO plants (name, description,  buying_cost,\
+    selling_price, manufacturer_id, stock_quantity) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [plant.name, plant.description, plant.buying_cost,\
+        plant.selling_price, plant.manufacturer.id, plant.stock_quantity]
     results = run_sql(sql, values)
     print(results)
     id = results[0]['id']
@@ -23,7 +22,7 @@ def select_all():
     
     for row in result:
         plant = Plant(row['name'], row['description'], row['buying_cost'],
-        row['selling_price'], row['manufacturer_id'])
+        row['selling_price'], row['manufacturer_id'], row['stock_quantity'])
         plants.append(plant)
     return plants
 
@@ -35,7 +34,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         plant = Plant(result['name'], result['description'], result['buying_cost'], result['selling_price'],
-        result['manufacturer_id'])
+        result['manufacturer_id'], result['stock_quantity'])
     return plant
     
 def delete(id):
@@ -50,8 +49,7 @@ def delete_all():
 def update(plant):
     sql = "UPDATE plants SET (name, description, stock_quantity, \
         buying_cost, selling_price, manufacturer_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    stock_quantity = plant.stock_quantity_sum()
-    values = [plant.name, plant.description, stock_quantity, plant.buying_cost, plant.selling_price,\
-        plant.manufacturer.id]
+    values = [plant.name, plant.description, plant.buying_cost, plant.selling_price,\
+        plant.manufacturer.id, plant.stock_quantity]
     run_sql(sql, values)
 
