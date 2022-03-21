@@ -14,5 +14,5 @@ CREATE TABLE plants (
     stock_quantity INT,
     buying_cost FLOAT,
     selling_price FLOAT,
-    manufacturer_id INT REFERENCES manufacturers
+    manufacturer_id INT REFERENCES manufacturers(id)
 );
