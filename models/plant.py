@@ -7,11 +7,9 @@ class Plant:
         self.selling_price = selling_price
         self.manufacturer = manufacturer
         self.id = id
-        self.stock_quantity = []
+        self.stock_quantity = [name]
 
 
-    def add_stock(self, item):
-        self.stock_quantity.append(item)
 
     def stock_quantity_sum(self):
         return len(self.stock_quantity)

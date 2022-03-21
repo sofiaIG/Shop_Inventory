@@ -25,11 +25,10 @@ class TestPlant(unittest.TestCase):
 
 
     def test_has_id(self):
-        self.assertEqual(32, self.plant.manufacturer_id)
+        self.assertEqual(32, self.plant.manufacturer)
 
 
     def test_stock_quantity_sum_add_item(self):
-        self.plant.add_stock("Wallace")
         self.assertEqual(1, self.plant.stock_quantity_sum())
 
 

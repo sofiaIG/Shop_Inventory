@@ -18,30 +18,30 @@ def save(plant):
     print(results)
     id = results[0]['id']
     plant.id = id
-    return plant
+    return id
 
 
-# def select_all():
-#     plants = []
-#     sql = "SELECT * FROM plants"
-#     result = run_sql(sql)
+def select_all():
+    plants = []
+    sql = "SELECT * FROM plants"
+    result = run_sql(sql)
     
-#     for row in result:
-#         plant = Plant(row['name'], row['description'], row['buying_cost'],
-#         row['selling_price'], row['manufacturer'])
-#         plants.append(plant)
-#     return plants
+    for row in result:
+        plant = Plant(row['name'], row['description'], row['buying_cost'],
+        row['selling_price'], row['manufacturer_id'])
+        plants.append(plant)
+    return plants
 
 
-# def select(id):
-#     plant = None
-#     sql = "SELECT * FROM plants WHERE id = %s"
-#     values = [id]
-#     result = run_sql(sql, values)[0]
-#     if result is not None:
-#         plant = Plant(result['name'], result['description'], result['buying_cost'], result['selling_price'],
-#         result['manufacturer'])
-#     return plant
+def select(id):
+    plant = None
+    sql = "SELECT * FROM plants WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        plant = Plant(result['name'], result['description'], result['buying_cost'], result['selling_price'],
+        result['manufacturer_id'])
+    return plant
     
 # def delete(id):
 #     sql = "DELETE FROM plants WHERE id = %s"

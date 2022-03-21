@@ -5,17 +5,19 @@ import repositories.manufacturer_repository as manufacturer_repository
 import repositories.plant_repository as plant_repository
 
 manufacturer = Manufacturer('Plants Limited')
-print   (manufacturer_repository.save(manufacturer))
+id = manufacturer_repository.save(manufacturer)
+print(id)
 
 plant = Plant("Wallace", "Monkey face plant; Monkey plant; Mini Swiss cheese plant",
         2.55, 5, manufacturer)
 
 
-print(plant_repository.save(plant))
+plant_repository.save(plant)
+print('statement below')
+plants = plant_repository.select_all()
+for plant in plants:
+    print(plant.__dict__)
 
-# plants = plant_repository.select_all()
-# for plant in plants:
-#     print(plant.__dict__)
 
 
 
