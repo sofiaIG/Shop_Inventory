@@ -12,9 +12,8 @@ def save(plant):
     results = run_sql(sql, values)
     print(results)
     id = results[0]['id']
-    print(f'this is the id {id}')
     plant.id = id
-    return id
+    return plant
 
 
 def select_all():

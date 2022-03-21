@@ -14,12 +14,11 @@ plant = Plant("Wallace", "Monkey face plant; Monkey plant; Mini Swiss cheese pla
 
 
 plant_repository.save(plant)
-plant_repository.delete(12)
-plant_repository.delete_all()
-plant_repository.update()
-# plants = plant_repository.select_all()
-# for plant in plants:
-#     print(plant.__dict__)
+
+
+plants = plant_repository.select_all()
+for plant in plants:
+    print(plant.__dict__)
 
 
 
