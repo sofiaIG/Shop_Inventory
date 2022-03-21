@@ -13,3 +13,38 @@ def save(manufacturer):
     id = results[0]['id']
     manufacturer.id = id
     return manufacturer
+
+def select_all():
+    manufacturers = []
+    sql = "SELECT * FROM manufacturers"
+    result = run_sql(sql)
+    
+    for row in result:
+        manufacturer = Manufacturer(row['name'])
+        manufacturers.append(manufacturer)
+    return manufacturers
+
+
+def select(id):
+    plant = None
+    sql = "SELECT * FROM manufacturers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        manufacturer = Manufacturer(result['name'])
+    return manufacturer
+    
+def delete(id):
+    sql = "DELETE FROM manufacturers WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+    
+def delete_all():
+    sql = "DELETE FROM manufacturers"
+    run_sql(sql)
+
+def update(manufacturer):
+    sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
+    values = [manufacturer.name]
+    run_sql(sql, values)
+
