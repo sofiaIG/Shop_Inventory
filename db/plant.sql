@@ -1,21 +1,18 @@
-DROP TABLE plant;
-DROP TABLE manufacturer;
+DROP TABLE plants;
+DROP TABLE manufacturers;
 
 
-
-CREATE TABLE manufacturer (
+CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
-
 );
 
-CREATE TABLE plant (
+CREATE TABLE plants (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     description TEXT,
     stock_quantity INT,
     buying_cost FLOAT,
     selling_price FLOAT,
-    manifacturers_id INT REFERENCES manufacturer(id)
+    manufacturer_id INT REFERENCES manufacturers
 );
- 
