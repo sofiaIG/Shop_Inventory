@@ -22,13 +22,15 @@ def select_all():
 
 
 def select(id):
-    plant = None
+    manufacturer = None
     sql = "SELECT * FROM manufacturers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
         manufacturer = Manufacturer(result['name'])
     return manufacturer
+
+
     
 def delete(id):
     sql = "DELETE FROM manufacturers WHERE id = %s"

@@ -2,29 +2,39 @@
 {% block content %}
 
 
- <form action="/inventory/{{item.id}}" method="post">
+ <form action="/inventory" method="post">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{item.name}}" required>
+        <input type="text" id="name" name="name"placeholder="Name">
     </div>
       
     <div>
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="{{item.description}}" required autofocus>
+        <input type="text" id="description" name="description" placeholder="Description" >
     </div>
       
     <div>
           <label for="buying_cost">Buying Cost:</label>
-          <input type="text" id="buying_cost" name="buying_cost" value="{{item.buying_cost}}" required autofocus>
+          <input type="text" id="buying_cost" name="buying_cost" placeholder="Buying Cost">
     </div>
       
     <div>
         <label for="selling_price">Selling Price:</label>
-        <input type="text" id="selling_price" name="selling_price" value="{{item.selling_price}}" required autofocus>
+        <input type="text" id="selling_price" name="selling_price" placeholder="Selling Price">
+    </div>
+    
+    
+    <div>
+    <label for="manufacturer_id">Manufacturer:</label>
+    <select id="manufacturer_id" name="manufacturer_id">
+        {% for manufacturer in all_manufacturers %}
+        <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+        {% endfor %}
+    </select>
     </div>
     <div>
-        <label for="manufacturer_id">Manufacturer:</label>
-        <input type="text" id="manufacturer_id" name="manufacturer_id" value="{{item.manufacturer_id}}" required autofocus>
+        <label for="stock_quantity">Stock Quantity:</label>
+        <input type="text" id="stock_quantity" name="stock_quantity"  placeholder="Stock Quantity">
     </div>
     </div>
     <button type="submit">Add Plant</button>

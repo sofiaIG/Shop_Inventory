@@ -8,8 +8,7 @@ plant_repository.delete_all()
 manufacturer_repository.delete_all()
 manufacturer = Manufacturer('Plants Limited')
 manufacturer_repository.save(manufacturer)
-plant = Plant("Wallace", "Monkey face plant; Monkey plant; Mini Swiss cheese plant",
-        2.55, 5, manufacturer, 2)
+plant = Plant("Wallace", "Monkey face plant; Monkey plant; Mini Swiss cheese plant", 2.55, 5, manufacturer, 2)
 plant_repository.save(plant)
 
 

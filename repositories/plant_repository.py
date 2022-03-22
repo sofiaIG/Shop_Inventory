@@ -5,11 +5,10 @@ from models.plant import Plant
 
 def save(plant):
     sql = "INSERT INTO plants (name, description,  buying_cost,\
-    selling_price, manufacturer_id, stock_quantity,) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    selling_price, manufacturer_id, stock_quantity) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
     values = [plant.name, plant.description, plant.buying_cost,\
         plant.selling_price, plant.manufacturer.id, plant.stock_quantity]
     results = run_sql(sql, values)
-    print(results)
     id = results[0]['id']
     plant.id = id
     return plant
