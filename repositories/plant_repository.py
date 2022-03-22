@@ -5,7 +5,7 @@ from models.plant import Plant
 
 def save(plant):
     sql = "INSERT INTO plants (name, description,  buying_cost,\
-    selling_price, manufacturer_id, stock_quantity) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    selling_price, manufacturer_id, stock_quantity,) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
     values = [plant.name, plant.description, plant.buying_cost,\
         plant.selling_price, plant.manufacturer.id, plant.stock_quantity]
     results = run_sql(sql, values)
@@ -47,9 +47,9 @@ def delete_all():
     run_sql(sql)
 
 def update(plant):
-    sql = "UPDATE plants SET (name, description, stock_quantity, \
-        buying_cost, selling_price, manufacturer_id) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE plants SET (name, description, buying_cost, \
+        selling_price, manufacturer_id, stock_quantity) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [plant.name, plant.description, plant.buying_cost, plant.selling_price,\
-        plant.manufacturer.id, plant.stock_quantity]
+        plant.manufacturer.id, plant.stock_quantity, plant.id]
     run_sql(sql, values)
 

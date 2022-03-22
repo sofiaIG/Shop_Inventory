@@ -1,6 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 {% for item in inventory %}
-    <p>{{ item.name }}</p>
-    <p>{{ item.description }}</p>
+<ul>
+    <li>
+        <p><a>{{ item.name }}</a>
+            {{ item.description }}
+            {% if item.stock_quantity == 0 %}
+            {{"out of stock"}}
+            {% elif item.stock_quantity <= 2 %}
+            {{"low stock"}}
+
+            {% endif %}
+        </p>
+    </li>
+</ul>
+
 {% endfor %}
 {% endblock %}

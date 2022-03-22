@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from controllers.inventory_controller import inventory_blueprint
+from controllers.plant_controller import inventory_blueprint
 
 app = Flask(__name__)
 
