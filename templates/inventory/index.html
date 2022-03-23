@@ -6,6 +6,7 @@
             <p>{{ item.description }}
             {% if item.stock_quantity == 0 %}
             {{"out of stock"}}
+            <a href = 'manufacturers/{{item.manufacturer.id}}'>{{ item.manufacturer}}</a>
             {% elif item.stock_quantity <= 2 %}
             {{"low stock"}}
 
@@ -20,8 +21,8 @@
 <form action="/inventory/new", method = "get">
     <input type="submit" value="Create new Plant" />
 </form>
+<form action="/manufacturers/new", method = "get">
+    <input type="submit" value="Create new Manufacturer" />
+</form>
 
-<!-- <form action="/inventory/edit_plant">
-    <input type="submit" value="Edit Existing Plant" />
-</form> -->
 {% endblock %}

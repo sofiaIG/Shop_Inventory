@@ -29,6 +29,7 @@ def create_plant():
     stock_quantity = request.form['stock_quantity']
     manufacturer_object = manufacturer_repository.select(manufacturer_id)
     plant = Plant(name, description, buying_cost, selling_price, manufacturer_object, stock_quantity)
+
     plant_repository.save(plant)
     return redirect('/inventory')
 
