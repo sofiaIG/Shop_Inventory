@@ -19,6 +19,7 @@ plant_3 = Plant("Lionel", "Citrus calamondin", 12, 30, manufacturer, 0)
 plant_repository.save(plant_2)
 plant_repository.save(plant_3)
 plants = plant_repository.select_all()
+manufacturer_repository.select_all()
 
 
 for plant in plants:

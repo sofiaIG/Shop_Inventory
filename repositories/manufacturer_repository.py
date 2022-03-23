@@ -16,7 +16,7 @@ def select_all():
     result = run_sql(sql)
     
     for row in result:
-        manufacturer = Manufacturer(row['name'])
+        manufacturer = Manufacturer(row['name'], row['id'])
         manufacturers.append(manufacturer)
     return manufacturers
 
@@ -27,7 +27,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        manufacturer = Manufacturer(result['name'])
+        manufacturer = Manufacturer(result['name'], result["id"])
     return manufacturer
 
 

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{{% extends "base.html" %}
 {% block content %}
 
   <div>
@@ -7,9 +7,9 @@
     <p>{{plant.description}}</p>
     <p>{{plant.buying_cost}}</p>
     <p>{{plant.selling_price}}</p>
-    <p>{{plant.manufacturer_id}}</p>
+    <p>{{plant.manufacturer.name}}</p>
     <p>{{plant.stock_quantity}}</p>
-    
+    <p><a href="/inventory/{{plant.id}}/edit">Edit</a></p>
   </div>
 
 {% endblock %}
