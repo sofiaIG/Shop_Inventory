@@ -11,7 +11,7 @@ def manufacturer():
     manufacturer = manufacturer_repository.select_all()
     return render_template("manufacturers/index.html", manufacturer = manufacturer)
 
-@inventory_blueprint.route("/manufacturers/new", methods=['GET'])
+@inventory_blueprint.route("manufacturers/new", methods=['GET'])
 def new_manufacturer():
     manufacturers = manufacturer_repository.select_all()
     print(manufacturers)

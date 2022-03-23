@@ -2,13 +2,13 @@
 {% block content %}
 
   <div>
-    <p>{{plant.name}}</p>
+   <h2> <p>Name: {{plant.name}}</p></h2>
     <hr>
-    <p>{{plant.description}}</p>
-    <p>{{plant.buying_cost}}</p>
-    <p>{{plant.selling_price}}</p>
-    <p>{{plant.manufacturer.name}}</p>
-    <p>{{plant.stock_quantity}}</p>
+    <p> Description: {{plant.description}}</p>
+    <p>Buying cost: {{plant.buying_cost}}</p>
+    <p>Selling price: {{plant.selling_price}}</p>
+    <p>Manufacturer: {{plant.manufacturer.name}}</p>
+    <p>Stock quantity: {{plant.stock_quantity}}</p>
     <p><a href="/inventory/{{plant.id}}/edit">Edit</a></p>
   </div>
 

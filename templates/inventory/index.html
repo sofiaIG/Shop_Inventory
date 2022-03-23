@@ -6,7 +6,6 @@
             <p>{{ item.description }}
             {% if item.stock_quantity == 0 %}
             {{"out of stock"}}
-            <a href = 'manufacturers/{{item.manufacturer.id}}'>{{ item.manufacturer}}</a>
             {% elif item.stock_quantity <= 2 %}
             {{"low stock"}}
 

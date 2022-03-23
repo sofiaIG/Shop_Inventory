@@ -54,8 +54,9 @@ def update_plant(id):
     description= request.form['description']
     buying_cost = request.form['buying_cost']
     selling_price = request.form['selling_price']
-    manufacturer_id  = manufacturer_repository.select(request.form[''])
+    manufacturer_id = request.form["manufacturer_id"]
     stock_quantity = request.form['stock_quantity']
+    manufacturer_object = manufacturer_repository.select(manufacturer_id)
     plant = Plant(name, description, buying_cost, selling_price, manufacturer_id, stock_quantity, id)
     plant_repository.update(plant)
     return redirect('/inventory')
