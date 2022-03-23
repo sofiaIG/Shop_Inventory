@@ -10,6 +10,7 @@ def save(manufacturer):
     manufacturer.id = id
     return manufacturer
 
+
 def select_all():
     manufacturers = []
     sql = "SELECT * FROM manufacturers"
@@ -22,27 +23,29 @@ def select_all():
 
 
 def select(id):
-    manufacturer = None
+    plant = None
     sql = "SELECT * FROM manufacturers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        manufacturer = Manufacturer(result['name'], result["id"])
-    return manufacturer
+        manufacturer = Manufacturer(result['name'], result['id'])
+    return plant
 
 
     
 def delete(id):
-    sql = "DELETE FROM manufacturers WHERE id = %s"
+    sql = "DELETE FROM plants WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     
 def delete_all():
-    sql = "DELETE FROM manufacturers"
+    sql = "DELETE FROM plants"
     run_sql(sql)
 
-def update(manufacturer):
-    sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
-    values = [manufacturer.name]
+def update(plant):
+    sql = "UPDATE plants SET (name, description, buying_cost, \
+        selling_price, manufacturer_id, stock_quantity) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [plant.name, plant.description, plant.buying_cost, plant.selling_price,\
+        plant.manufacturer.id, plant.stock_quantity, plant.id]
     run_sql(sql, values)
 

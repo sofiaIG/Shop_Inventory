@@ -1,6 +1,4 @@
-from unittest import result
 from db.run_sql import run_sql
-
 from models.plant import Plant
 
 
@@ -31,12 +29,10 @@ def select(id):
     plant = None
     sql = "SELECT * FROM plants WHERE id = %s"
     values = [id]
-    print("THIS ARE THE VALUES")
-    print(values)
     result = run_sql(sql, values)[0]
     if result is not None:
         plant = Plant(result['name'], result['description'], result['buying_cost'], result['selling_price'],
-        result['manufacturer_id'], result['stock_quantity'])
+        result['manufacturer_id'], result['stock_quantity'], result['id'])
     return plant
 
 

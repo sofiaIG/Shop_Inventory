@@ -2,7 +2,7 @@
 {% for item in inventory %}
 <ul>
     <li>
-        <p><a href = '/inventory/{{item.id}}/'>{{ item.name }}</a>
+        <p><a href = '/inventory/{{item.id}}'>{{ item.name }}</a>
             <p>{{ item.description }}
             {% if item.stock_quantity == 0 %}
             {{"out of stock"}}
@@ -21,9 +21,6 @@
     <input type="submit" value="Create new Plant" />
 </form>
 
-<form action="/inventory/<id>", method = "get">
-    <input type="submit" value="Update Plant" />
-</form>
 <!-- <form action="/inventory/edit_plant">
     <input type="submit" value="Edit Existing Plant" />
 </form> -->

@@ -8,7 +8,6 @@ inventory_blueprint = Blueprint("inventory", __name__)
 
 
 @inventory_blueprint.route("/inventory")
-# This one works
 def inventory():
     inventory = plant_repository.select_all()
     return render_template("inventory/index.html", inventory = inventory)
@@ -37,7 +36,7 @@ def create_plant():
 @inventory_blueprint.route("/inventory/<id>", methods=['GET'])
 def show_inventory_plant(id):
     plant = plant_repository.select(id)
-    return render_template('inventory/index.html', plant = plant)
+    return render_template('inventory/show.html', plant = plant)
 
 
 @inventory_blueprint.route("/inventory/<id>/edit", methods=['GET'])
