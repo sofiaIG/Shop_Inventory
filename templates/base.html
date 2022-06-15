@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"type="text/css">
     <title>Plant Inventory</title>
 </head>
 
 <body>
-    <h1><a href = "/inventory">Home</a></h1>
-    <h1>Plant Inventory</h1>
+    <header class="header">
+        <h1><a href = "/" >Plant Inventory</a></h1>
+    </header>
     {% block content %} {% endblock %}
-    
+
 </body>
 
 
 
 </html>
+

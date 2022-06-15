@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div>
+  <div class = "details">
    <h2> <p>Name: {{plant.name}}</p></h2>
     <hr>
     <p> Description: {{plant.description}}</p>
@@ -9,7 +9,7 @@
     <p>Selling price: {{plant.selling_price}}</p>
     <p>Manufacturer: {{plant.manufacturer.name}}</p>
     <p>Stock quantity: {{plant.stock_quantity}}</p>
-    <p><a href="/inventory/{{plant.id}}/edit">Edit</a></p>
+    <a href="/inventory/{{plant.id}}/edit"><button>Edit</button></a></a>
   </div>
 
 {% endblock %}

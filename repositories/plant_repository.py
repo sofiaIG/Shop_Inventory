@@ -1,4 +1,3 @@
-from controllers.manufacturer_controller import manufacturer
 from repositories import manufacturer_repository
 from db.run_sql import run_sql
 from models.plant import Plant
@@ -53,11 +52,8 @@ def update(plant):
     sql = "UPDATE plants SET (name, description, buying_cost, \
         selling_price, manufacturer_id, stock_quantity) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     manufacturer_id = plant.manufacturer
-    print(f'THIS IS THE MANUFACTURER ID{manufacturer_id}')
     manufacturer_object = manufacturer_repository.select(manufacturer_id)
     values = [plant.name, plant.description, plant.buying_cost, plant.selling_price,\
         manufacturer_object.id, plant.stock_quantity, plant.id]
-    print("HEREEEEE£")
-    print(type(plant.manufacturer))
     run_sql(sql, values)
 
