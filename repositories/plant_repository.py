@@ -32,7 +32,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        manufacturer = manufacturer_repository.select(result["manufacturer_id"])#THIS LINE
+        manufacturer = manufacturer_repository.select(result["manufacturer_id"])
         plant = Plant(result['name'], result['description'], result['buying_cost'], result['selling_price'],
         manufacturer, result['stock_quantity'], result['id'])
     return plant
