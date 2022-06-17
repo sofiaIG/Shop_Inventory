@@ -9,11 +9,11 @@ Keeping track of plant stock that the user have. Functionality to add, delete an
 * [Technologies](#technologies)
 * [Setup](#setup)
 
-##General info
+## General info
 This app is designed for plant shops. You should be able to keep track of your current stock as well as the corresponding manufacturer of the item. Edit it if you have sold items. Make sure that you are not low in stock or out of stock on selected items. You should be able to see plant items as well as the current manufacturers that you work with and their details. The website offers the functionality to add additional plant items and manufacturers as wells as edit them. 
 
 
-##Technologies
+## Technologies
 
 
 On this project I have used Python and Flask.
@@ -24,7 +24,7 @@ On this project I have used Python and Flask.
 * CSS
 
 
-##Setup
+## Setup
 
 This app is using Python Flask so before initiating the project make sure that your computer has Python as well as Flask installed (pip install flask). In order to run the app you will first need to clone it locally and then run it from there. On your terminal you should be able to see the port you should be visiting.
 
