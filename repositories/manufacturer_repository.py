@@ -34,12 +34,12 @@ def select(id):
 
     
 def delete(id):
-    sql = "DELETE FROM plants WHERE id = %s"
+    sql = "DELETE FROM manufacturers WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     
 def delete_all():
-    sql = "DELETE FROM plants"
+    sql = "DELETE FROM manufacturers"
     run_sql(sql)
 
 def update(manufacturer):
