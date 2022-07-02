@@ -23,9 +23,7 @@ plants = plant_repository.select_all()
 manufacturer_repository.select_all()
 
 
-# for plant in plants:
-#     print(plant.__dict__) 
-# Line above shows that the id is None. Needs to be looked at.
+
 
 
 

@@ -21,6 +21,7 @@ On this project I have used Python and Flask.
 * Python 3.8.10
 * Flask 1.1.1
 * HTML
+* PSQL
 * CSS
 
 
