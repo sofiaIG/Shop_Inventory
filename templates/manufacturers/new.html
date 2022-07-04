@@ -1,14 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<form action="/manufacturers" method="post">
+<form action="/manufacturers" method="post" style="max-width: 80ch">
+  <div class="mb-3">
+    <label class="form-label" ] for="name">Name:</label>
+    <input
+      class="form-control"
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Name"
+    />
+  </div>
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"placeholder="Name">
-    </div>
+  <button class="btn btn-primary" type="submit">Add Manufacturer</button>
+</form>
 
-    <button class = "leafButton" type="submit">Add Manufacturer</button>
-    </form>
-
-    {% endblock %}
+{% endblock %}

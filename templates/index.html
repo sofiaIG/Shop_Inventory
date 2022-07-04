@@ -1,12 +1,35 @@
 {% extends 'base.html' %} {% block content %}
-<p>This is your plant Inventory Webpage </p>
-<p>Please select between two functionalities</p>
 
-<a class="leafButton" href=/inventory>Plants
-    </a>
-    <a class="leafButton" href=/manufacturers>Manufactures
-        </a>
+<div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+  <div class="col">
+    <div class="card">
+      <img src="../static/plant.jpg" class="card-img-top" alt="plant" />
+      <div class="card-body">
+        <h5 class="card-title">Plants</h5>
+        <p class="card-text">
+          Manage the plants in your inventory and keep track of your stock.
+        </p>
+        <a href="/inventory" class="btn btn-primary">Plants</a>
+      </div>
+    </div>
+  </div>
 
+  <div class="col">
+    <div class="card">
+      <img
+        src="../static/manufacturer.jpg"
+        class="card-img-top"
+        alt="manufacturer"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Manufacturers</h5>
+        <p class="card-text">
+          Keep track and manage the manufacturers that you are working with.
+        </p>
+        <a href="/manufacturers" class="btn btn-primary">Manufacturers</a>
+      </div>
+    </div>
+  </div>
 
-
- {% endblock %}
+  {% endblock %}
+</div>

@@ -9,7 +9,8 @@
     <p>Selling price: {{plant.selling_price}}</p>
     <p>Manufacturer: {{plant.manufacturer.name}}</p>
     <p>Stock quantity: {{plant.stock_quantity}}</p>
-    <a class = "leafButton" href="/inventory/{{plant.id}}/edit">Edit</a>
+    <a class="btn btn-primary" href="/inventory/{{plant.id}}/delete">Delete</a>
+    <a class="btn btn-primary" href="/inventory/{{plant.id}}/edit">Edit</a>
   </div>
 
 {% endblock %}
