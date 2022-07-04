@@ -46,6 +46,11 @@ def edit_plant(id):
     manufacturers = manufacturer_repository.select_all()
     return render_template('inventory/edit.html', plant = plant, manufacturers = manufacturers)
 
+@inventory_blueprint.route("/inventory/<id>/delete", methods=['GET'])
+def delete_plant(id):
+    plant_repository.delete(id)
+    return redirect('/inventory')
+
 
 
 @inventory_blueprint.route("/inventory/<id>", methods=['POST'])
@@ -60,4 +65,7 @@ def update_plant(id):
     plant = Plant(name, description, buying_cost, selling_price, manufacturer_id, stock_quantity, id)
     plant_repository.update(plant)
     return redirect('/inventory')
+
+
+    
 
