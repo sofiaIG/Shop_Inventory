@@ -2,70 +2,70 @@
 
 <form action="/inventory" method="post" class="card" style="max-width: 80ch">
   <div class="card-body">
-  <div class="mb-3">
-    <label class="form-label" for="name">Name</label>
-    <input
-      class="form-control"
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Name"
-    />
-  </div>
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label class="form-label" for="description">Description</label>
-    <input
-      class="form-control"
-      type="text"
-      id="description"
-      name="description"
-      placeholder="Description"
-    />
-  </div>
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <input
+        class="form-control"
+        type="text"
+        id="description"
+        name="description"
+        placeholder="Description"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label class="form-label" for="buying_cost">Buying Cost</label>
-    <input
-      class="form-control"
-      type="text"
-      id="buying_cost"
-      name="buying_cost"
-      placeholder="Buying Cost"
-    />
-  </div>
+    <div class="mb-3">
+      <label class="form-label" for="buying_cost">Buying Cost</label>
+      <input
+        class="form-control"
+        type="text"
+        id="buying_cost"
+        name="buying_cost"
+        placeholder="Buying Cost"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label class="form-label" for="selling_price">Selling Price</label>
-    <input
-      class="form-control"
-      type="text"
-      id="selling_price"
-      name="selling_price"
-      placeholder="Selling Price"
-    />
-  </div>
+    <div class="mb-3">
+      <label class="form-label" for="selling_price">Selling Price</label>
+      <input
+        class="form-control"
+        type="text"
+        id="selling_price"
+        name="selling_price"
+        placeholder="Selling Price"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label class="form-label" for="manufacturer_id">Manufacturer</label>
-    <select class="form-select" id="manufacturer_id" name="manufacturer_id">
-      {% for manufacturer in all_manufacturers %}
-      <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
-      {% endfor %}
-    </select>
+    <div class="mb-3">
+      <label class="form-label" for="manufacturer_id">Manufacturer</label>
+      <select class="form-select" id="manufacturer_id" name="manufacturer_id">
+        {% for manufacturer in all_manufacturers %}
+        <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="stock_quantity">Stock Quantity</label>
+      <input
+        class="form-control"
+        type="text"
+        id="stock_quantity"
+        name="stock_quantity"
+        placeholder="Stock Quantity"
+      />
+    </div>
+    <button class="btn btn-primary" type="submit">Add Plant</button>
   </div>
-  <div class="mb-3">
-    <label class="form-label" for="stock_quantity">Stock Quantity</label>
-    <input
-      class="form-control"
-      type="text"
-      id="stock_quantity"
-      name="stock_quantity"
-      placeholder="Stock Quantity"
-    />
-  </div>
-  <button class="btn btn-primary" type="submit">Add Plant</button>
-</div>
 </form>
 
 {% endblock %}

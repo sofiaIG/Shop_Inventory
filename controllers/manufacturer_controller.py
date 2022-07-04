@@ -38,6 +38,11 @@ def edit_manufacturer(id):
     return render_template('manufacturers/edit.html', manufacturer = manufacturer, manufacturers = manufacturers)
 
 
+@manufacturer_blueprint.route("/manufacturers/<id>/delete", methods = ['GET'])
+def delete_manufacturer(id):
+    manufacturer_repository.delete(id)
+    return redirect('/manufacturers')
+
 
 @manufacturer_blueprint.route("/manufacturers/<id>", methods=['POST'])
 def update_manufacturer(id):

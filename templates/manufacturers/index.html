@@ -1,15 +1,18 @@
 {% extends 'base.html' %} {% block content %}
-<ul class = "details">
+<div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
 {% for manufacturer in manufacturers %}
 
-    <li>
-        <a class ="leafLink" href = '/manufacturers/{{manufacturer.id}}'>{{ manufacturer.name }}</a>
-    </li>
+<div class="col">
+    <div class="card h-100">
+        <p class="card-text p-5">{{ manufacturer.name }}</p>
+        <a class="btn btn-primary mb-4 pl-2 pr-2" href = '/manufacturers/{{manufacturer.id}}'>View</a>
+    </div>
+    </div>
 
 {% endfor %}
-</ul>
+</div>
 
-<a class="btn btn-primary" href="/manufacturers/new">Create New Manufacturer</a>
+<a class="btn btn-primary mt-4" href="/manufacturers/new">Create New Manufacturer</a>
 
 
 {% endblock %}
