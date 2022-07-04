@@ -41,11 +41,7 @@ def edit_manufacturer(id):
 
 @manufacturer_blueprint.route("/manufacturers/<id>", methods=['POST'])
 def update_manufacturer(id):
-    manufacturer_object = manufacturer_repository.select(id)
-    manufacturer_object.name = request.form['name']
-    print(manufacturer_object.name)
-    print(id)
-    print(manufacturer_object.id)   
+    manufacturer_object = Manufacturer(request.form['name'], id)
     manufacturer_repository.update(manufacturer_object)
     return redirect('/manufacturers')
 
