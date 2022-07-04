@@ -22,7 +22,7 @@ On this project I have used Python and Flask.
 * Flask 1.1.1
 * HTML
 * PSQL
-* CSS
+* Bootstrap
 
 
 ## Setup
