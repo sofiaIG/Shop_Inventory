@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form class = "details" action="/inventory/{{plant.id}}" method="post">
+<form class="card" action="/inventory/{{plant.id}}" method="post">
+  <div class="card-body">
+
   <div>
     <label for="Name">Name:</label>
     <input type="text" id="name" name="name" value="{{plant.name}}" required>
@@ -42,6 +44,7 @@
 
   <button class="btn btn-primary" type="submit">Update Plant</button>
 
+</div>
 </form>
 
 {% endblock %}

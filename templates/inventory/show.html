@@ -1,16 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-  <div class = "details">
-   <h2> <p>Name: {{plant.name}}</p></h2>
-    <hr>
-    <p> Description: {{plant.description}}</p>
-    <p>Buying cost: {{plant.buying_cost}}</p>
-    <p>Selling price: {{plant.selling_price}}</p>
-    <p>Manufacturer: {{plant.manufacturer.name}}</p>
-    <p>Stock quantity: {{plant.stock_quantity}}</p>
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    
+  <h5 class="card-title">{{ plant.name }} <span class="badge bg-info">{{ plant.stock_quantity }} in stock</span></h5>
+    <a href="/manufacturers/{{plant.manufacturer.id}}">
+      
+      <h6 class="card-subtitle">{{plant.manufacturer.name}}</h6></a>
+    <p class="card-text">{{plant.description}}</p>
+    <p class="card-text">Buying cost: {{plant.buying_cost}}</p>
+    <p class="card-text">Selling price: {{plant.selling_price}}</p>
     <a class="btn btn-primary" href="/inventory/{{plant.id}}/delete">Delete</a>
     <a class="btn btn-primary" href="/inventory/{{plant.id}}/edit">Edit</a>
   </div>
+</div>
 
 {% endblock %}

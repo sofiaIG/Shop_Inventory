@@ -1,24 +1,28 @@
 {% extends 'base.html' %} {% block content %}
-<ul class = "details">
-{% for item in inventory %}
+<div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
+  {% for item in inventory %}
 
-    <li>
-        <p><a href = '/inventory/{{item.id}}'>{{ item.name }}</a>
-            <p >Description: {{ item.description }}
-            {% if item.stock_quantity == 0 %}
-            <p class = "alertStock">Out Of Stock</p>
-            {% elif item.stock_quantity <= 2 %}
-            <p class = "alertStock">Low Stock</p>
+  <div class="col">
+    <div class="card h-100">
+        <h5 class="card-header">
+                {{ item.name }} {% if item.stock_quantity == 0 %}
+                <span class="badge bg-danger">Out Of Stock</span>
+                {% elif item.stock_quantity <= 2 %}
+                <span class="badge bg-warning">Low Stock</span>
+                {% endif %}
+        </h5>
+      <div class="card-body">
 
-            {% endif %}
-        </p>
-    </li>
+        <p class="card-text">{{ item.description }}</p>
 
-{% endfor %}
-</ul>
+        <a class="btn btn-primary" href="/inventory/{{item.id}}">View</a>
+      </div>
+    </div>
+  </div>
 
+  {% endfor %}
+</div>
 
-<a style= "margin-bottom: 100px;"  class="btn btn-primary" href="/inventory/new">Create New Plant</a>
-
+<a class="btn btn-primary mt-3" href="/inventory/new">Create New Plant</a>
 
 {% endblock %}
