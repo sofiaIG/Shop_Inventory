@@ -51,8 +51,6 @@ def delete_plant(id):
     plant_repository.delete(id)
     return redirect('/inventory')
 
-
-
 @inventory_blueprint.route("/inventory/<id>", methods=['POST'])
 def update_plant(id):
     name = request.form['name']
@@ -62,7 +60,7 @@ def update_plant(id):
     manufacturer_id = request.form["manufacturer_id"]
     stock_quantity = request.form['stock_quantity']
     manufacturer_object = manufacturer_repository.select(manufacturer_id)
-    plant = Plant(name, description, buying_cost, selling_price, manufacturer_id, stock_quantity, id)
+    plant = Plant(name, description, buying_cost, selling_price, manufacturer_object, stock_quantity, id)
     plant_repository.update(plant)
     return redirect('/inventory')
 
