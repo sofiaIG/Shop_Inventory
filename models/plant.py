@@ -1,6 +1,14 @@
 class Plant:
-    def __init__(self, name, description, buying_cost,
-    selling_price, manufacturer, stock_quantity, id = None):
+    def __init__(
+        self,
+        name,
+        description,
+        buying_cost,
+        selling_price,
+        manufacturer,
+        stock_quantity,
+        id=None,
+    ):
         self.name = name
         self.description = description
         self.buying_cost = buying_cost
@@ -8,4 +16,3 @@ class Plant:
         self.manufacturer = manufacturer
         self.stock_quantity = stock_quantity
         self.id = id
-        
