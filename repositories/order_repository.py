@@ -13,9 +13,6 @@ def save(order):
         order.order_number,
     ]
     results = run_sql(sql, values)
-
-    print(results)
-
     id = results[0]["id"]
     order.id = id
     return order
